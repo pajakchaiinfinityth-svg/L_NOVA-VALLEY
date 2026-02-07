@@ -25,6 +25,13 @@ Yes—**if used correctly**
 - Never present benchmarks as “our actuals” without measurement  
 - KPI layers: **Observed** (real), **Assumed** (modeled), **Benchmark** (industry)  
 
+**How to use this document (practical next steps)**  
+1. **Copy the folder structure** in section 5 into your repo (or align to it).  
+2. **Create 4 OpenAPI files** (platform + 3 projects) in `api/openapi/` using section 8 as the contract template.  
+3. **Add ownership stamp** to all exports and add `MetadataEnvelope` to every artifact (section 4).  
+4. **Write 3 project chapters** using section 6 (UX flows) + section 3 (architecture) as the narrative skeleton.  
+5. **Instrument KPIs** with the Observed/Assumed/Benchmark layers (section 1) and mark unmeasured numbers as **[LOCK]**.  
+
 ---
 
 ## 2) Requirement & Scope
@@ -355,4 +362,3 @@ WV-TH: `/energy/telemetry`, `/energy/forecast`, `/energy/dispatch`, `/energy/car
 - Ops Hub: alerts + reliability + evidence vault  
 - Digital ID: asset/operator binding + audit  
 - Smart Economy: PPA/settlement rails (phase 2)  
-
