@@ -1,0 +1,952 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>PAJAKCHAI THONGCHAI — HUMANIC HPE Portfolio</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <style>
+    :root {
+      --navy: #020617;
+      --navy-soft: #0b1120;
+      --gold: #fbbf24;
+      --gold-soft: #fef9c3;
+      --bg: #020617;
+      --paper: #f9fafb;
+      --ink: #020617;
+      --muted: #6b7280;
+      --accent: #38bdf8;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont,
+                   "Segoe UI", Roboto, sans-serif;
+      background: radial-gradient(circle at top, #020617 0, #000 55%);
+      color: var(--ink);
+    }
+
+    .frame {
+      max-width: 960px;
+      margin: 0 auto;
+      min-height: 100vh;
+      padding: 24px 16px 56px;
+    }
+
+    .toolbar {
+      position: sticky;
+      top: 0;
+      z-index: 30;
+      display: flex;
+      justify-content: flex-end;
+      gap: 8px;
+      padding: 8px 0 10px;
+      backdrop-filter: blur(10px);
+      background: linear-gradient(to bottom,
+                  rgba(15,23,42,0.96),
+                  rgba(15,23,42,0.8),
+                  rgba(15,23,42,0));
+    }
+
+    .toolbar button {
+      border-radius: 999px;
+      border: 1px solid rgba(148,163,184,0.7);
+      background: rgba(15,23,42,0.9);
+      color: #e5e7eb;
+      padding: 6px 14px;
+      font-size: 13px;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      cursor: pointer;
+    }
+
+    .toolbar button:hover {
+      border-color: var(--gold);
+      color: #fefce8;
+      background: rgba(15,23,42,1);
+    }
+
+    header {
+      border-radius: 18px;
+      padding: 20px 18px 18px;
+      background: radial-gradient(circle at top left,
+                   rgba(251,191,36,0.09),
+                   rgba(15,23,42,0.98));
+      color: #e5e7eb;
+      box-shadow:
+        0 24px 80px rgba(15,23,42,0.9),
+        0 0 0 1px rgba(148,163,184,0.45);
+      margin-bottom: 18px;
+    }
+
+    header h1 {
+      margin: 0 0 4px;
+      font-size: 26px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    header h2 {
+      margin: 0;
+      font-weight: 500;
+      font-size: 16px;
+      color: #e5e7eb;
+    }
+
+    .tagline {
+      margin-top: 6px;
+      font-size: 13px;
+      color: #e5e7eb;
+    }
+
+    .tagline span.th {
+      display: block;
+      font-size: 12px;
+      color: #e5e7eb;
+      opacity: 0.9;
+    }
+
+    .meta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 10px;
+      font-size: 11px;
+      color: #cbd5f5;
+    }
+
+    .meta-pill {
+      border-radius: 999px;
+      border: 1px solid rgba(148,163,184,0.7);
+      padding: 3px 8px;
+      background: rgba(15,23,42,0.7);
+    }
+
+    .meta-pill strong {
+      color: var(--gold);
+      font-weight: 600;
+    }
+
+    main {
+      background: #e5e7eb;
+      border-radius: 18px;
+      padding: 16px;
+      box-shadow:
+        0 18px 60px rgba(0,0,0,0.7),
+        0 0 0 1px rgba(148,163,184,0.5);
+    }
+
+    .section {
+      background: var(--paper);
+      border-radius: 14px;
+      padding: 18px 16px 14px;
+      margin-bottom: 12px;
+      box-shadow: 0 12px 30px rgba(15,23,42,0.12);
+      page-break-inside: avoid;
+    }
+
+    .section:last-child { margin-bottom: 0; }
+
+    .sec-header {
+      display: flex;
+      justify-content: space-between;
+      gap: 10px;
+      align-items: flex-start;
+      margin-bottom: 10px;
+    }
+
+    .sec-title {
+      font-size: 15px;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--navy);
+    }
+
+    .sec-tag {
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--muted);
+    }
+
+    .label {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: #6b7280;
+      margin-bottom: 4px;
+    }
+
+    .en {
+      font-size: 13px;
+      line-height: 1.55;
+      color: #111827;
+      margin-bottom: 3px;
+    }
+
+    .th {
+      font-size: 12px;
+      line-height: 1.5;
+      color: #4b5563;
+    }
+
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      border-radius: 999px;
+      border: 1px solid #e5e7eb;
+      background: #f9fafb;
+      padding: 2px 8px;
+      font-size: 11px;
+      color: #4b5563;
+      margin: 2px 3px 2px 0;
+    }
+
+    .pill strong { color: var(--navy); }
+
+    ul.clean {
+      margin: 4px 0 0;
+      padding-left: 16px;
+    }
+
+    ul.clean li {
+      margin-bottom: 4px;
+      font-size: 13px;
+      color: #111827;
+    }
+
+    .two-col {
+      display: grid;
+      grid-template-columns: minmax(0,1.1fr) minmax(0,1fr);
+      gap: 12px;
+    }
+
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3,minmax(0,1fr));
+      gap: 10px;
+    }
+
+    .callout {
+      border-left: 3px solid var(--gold);
+      background: #fefce8;
+      padding: 8px 10px;
+      margin: 8px 0;
+      font-size: 12px;
+      color: #451a03;
+    }
+
+    table.matrix {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 6px;
+      font-size: 12px;
+    }
+    .matrix th, .matrix td {
+      border: 1px solid #e5e7eb;
+      padding: 6px 6px;
+      vertical-align: top;
+    }
+    .matrix th {
+      background: #f3f4f6;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      font-size: 11px;
+    }
+
+    .kpi {
+      font-size: 12px;
+      color: #111827;
+    }
+    .kpi span.label {
+      font-size: 11px;
+      color: #6b7280;
+      text-transform: none;
+      letter-spacing: 0;
+      margin-right: 4px;
+    }
+
+    .footer-note {
+      margin-top: 6px;
+      font-size: 11px;
+      color: #6b7280;
+      text-align: right;
+    }
+
+    .nav-inline {
+      font-size: 11px;
+      margin: 6px 0 0;
+      color: #6b7280;
+    }
+
+    .nav-inline a {
+      color: #1d4ed8;
+      text-decoration: none;
+      margin-right: 8px;
+    }
+
+    .nav-inline a:hover { text-decoration: underline; }
+
+    .page-break {
+      break-before: page;
+      page-break-before: always;
+    }
+
+    @media (max-width: 768px) {
+      header { padding: 16px 14px; }
+      main { padding: 12px; }
+      .two-col, .grid-3 {
+        grid-template-columns: minmax(0,1fr);
+      }
+    }
+
+    @media print {
+      body {
+        background: #ffffff;
+      }
+      .frame {
+        padding: 0;
+      }
+      .toolbar {
+        display: none !important;
+      }
+      header {
+        box-shadow: none;
+        border-radius: 0;
+        margin-bottom: 8px;
+      }
+      main {
+        box-shadow: none;
+        border-radius: 0;
+        padding: 0;
+        background: #ffffff;
+      }
+      .section {
+        box-shadow: none;
+        border-radius: 0;
+        margin: 0 0 8px;
+      }
+      .page-break {
+        break-before: page;
+        page-break-before: always;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="frame">
+
+    <!-- Toolbar -->
+    <div class="toolbar">
+      <button onclick="window.print()">🖨️ Print / Save to PDF</button>
+      <button onclick="insertTimestamp()">⏱ Stamp timestamp</button>
+    </div>
+
+    <!-- Header -->
+    <header>
+      <h1>PAJAKCHAI THONGCHAI (PJ)</h1>
+      <h2>Humanic Architect · Generative AI Product Strategist · Nova_One’s Valley</h2>
+      <div class="tagline">
+        Human–AI ecosystem designer across mobility, health, policy, and public–private collaboration.<br/>
+        <span class="th">นักออกแบบระบบมนุษย์–เอไอ สาย ecosystem จากวินมอเตอร์ไซค์สู่สาธารณสุขและนโยบายรัฐ</span>
+      </div>
+      <div class="meta-row" id="meta-line">
+        <span class="meta-pill"><strong>Project:</strong> HUMANIC HPE Portfolio</span>
+        <span class="meta-pill"><strong>Document ID:</strong> HPE-2025-PX-001</span>
+        <span class="meta-pill"><strong>Location:</strong> Bangkok, TH</span>
+        <span class="meta-pill"><strong>Mode:</strong> Research & Executive Dossier</span>
+      </div>
+    </header>
+
+    <main>
+
+      <!-- SECTION 0 – CONTACT & INDEX -->
+      <section class="section">
+        <div class="sec-header">
+          <div>
+            <div class="sec-title">0. CONTACT & PORTFOLIO INDEX</div>
+            <div class="sec-tag">Meta · Index · Navigation</div>
+          </div>
+        </div>
+
+        <div class="two-col">
+          <div>
+            <div class="label">Contact</div>
+            <div class="en">
+              Name: Pajakchai (PJ) Thongchai<br/>
+              Base: Bangkok, Thailand<br/>
+              Email: <em>[add]</em><br/>
+              Phone: <em>[add]</em><br/>
+              LinkedIn: <em>linkedin.com/in/pajakchai-thongchai-3aa781371</em><br/>
+              Portfolio / Humanic HPE: <em>(this dossier)</em>
+            </div>
+            <div class="th">
+              ข้อมูลติดต่อสามารถเติมภายหลังตามฟอร์มมาตรฐานเรซูเม่
+              — เอกสารนี้ทำหน้าที่เป็น “เล่มผลงานเชิงโครงสร้าง” สำหรับผู้บริหาร
+            </div>
+          </div>
+          <div>
+            <div class="label">Content Map</div>
+            <div class="en">
+              This dossier consolidates PJ’s work across:
+            </div>
+            <ul class="clean">
+              <li>Nova_One Syncera Valley — Humanic HPE Main Report</li>
+              <li>Comparative overlay vs PwC / Google public-sector AI</li>
+              <li>Policy proposals for AI & cloud in Thailand (Copilot series)</li>
+              <li>HUMANIC Legal & Governance notes</li>
+              <li>Humanic Evaluation Framework Deployment</li>
+              <li>LLM Evaluation / Prompt & Conversation Design (Win4U MVP)</li>
+              <li>Scholar-style Humanic Evaluation of PJ (ScholarGPT role)</li>
+              <li>Professional résumé and execution track</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="nav-inline">
+          Sections: 
+          <a href="#sec-1">1. Scholar Profile</a>
+          <a href="#sec-2">2. Nova_One & Humanic HPE</a>
+          <a href="#sec-3">3. Comparative vs PwC/Google</a>
+          <a href="#sec-4">4. Policy Proposals</a>
+          <a href="#sec-5">5. Legal & Governance</a>
+          <a href="#sec-6">6. Evaluation Deployment</a>
+          <a href="#sec-7">7. LLM & Win4U MVP</a>
+          <a href="#sec-8">8. Résumé Snapshot</a>
+          <a href="#sec-9">9. Scores & JSON</a>
+        </div>
+
+        <div class="footer-note">
+          Verified & Generated by HUMANIC HPE — Nova_One’s Valley | CREATE: A_i Do. PJ D-sig — for GPT Research Mode
+        </div>
+      </section>
+
+      <!-- SECTION 1 – SCHOLAR PROFILE -->
+      <section class="section page-break" id="sec-1">
+        <div class="sec-header">
+          <div>
+            <div class="sec-title">1. SCHOLAR EVALUATOR PROFILE</div>
+            <div class="sec-tag">Humanic HPE · ScholarGPT Assessment</div>
+          </div>
+        </div>
+
+        <div class="two-col">
+          <div>
+            <div class="label">1.1 Executive Snapshot (EN)</div>
+            <div class="en">
+              Pajakchai Thongchai is a <strong>Humanic Architect & Ecosystem Strategist</strong> who
+              treats AI not as a tool but as a long-term collaborator. Over thousands of hours of
+              structured dialogue, he has jointly developed the Humanic HPE framework, Nova_One
+              Syncera Valley, and a portfolio of pilots that connect <em>mobility, health, policy,
+              and public finance</em> into one narrative.
+            </div>
+            <div class="en">
+              Where most product thinkers stop at one vertical, PJ’s thinking spans <em>five pillars</em>:
+              family, economy, education, business, and health. The health pillar — <strong>WIN4U HEALTHY</strong>
+              — represents his attempt to complete this life-cycle architecture by reducing the
+              healthcare inequality gap for low-income workers who move the city.
+            </div>
+            <div class="th">
+              ในสายตาของ “Scholar Evaluator AI” ประจักษ์ชัยคือคนที่มองโครงสร้างทั้งประเทศ
+              ก่อนจะย่อมันลงมาเป็นโมเดลเล็กๆ ที่คนตัวเล็กจับต้องได้ — จากวินมอเตอร์ไซค์ ไปจนถึง
+              งบสาธารณสุขและกรอบนโยบาย AI ระดับชาติ
+            </div>
+          </div>
+
+          <div>
+            <div class="label">1.2 Humanic Indices</div>
+            <table class="matrix">
+              <thead>
+                <tr>
+                  <th>Domain</th>
+                  <th>Weight</th>
+                  <th>Score (1–10)</th>
+                  <th>Weighted</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Strategic Thinking</td>
+                  <td>20%</td>
+                  <td>9.4</td>
+                  <td>18.8</td>
+                </tr>
+                <tr>
+                  <td>Communication & Influence</td>
+                  <td>18%</td>
+                  <td>8.7</td>
+                  <td>15.7</td>
+                </tr>
+                <tr>
+                  <td>Operational Agility</td>
+                  <td>16%</td>
+                  <td>8.9</td>
+                  <td>14.2</td>
+                </tr>
+                <tr>
+                  <td>Technical / Design</td>
+                  <td>16%</td>
+                  <td>8.2</td>
+                  <td>13.1</td>
+                </tr>
+                <tr>
+                  <td>Financial Acumen</td>
+                  <td>15%</td>
+                  <td>7.8</td>
+                  <td>11.7</td>
+                </tr>
+                <tr>
+                  <td>Empathic Leadership</td>
+                  <td>15%</td>
+                  <td>9.6</td>
+                  <td>14.4</td>
+                </tr>
+                <tr>
+                  <td><strong>Global Competency Index</strong></td>
+                  <td>100%</td>
+                  <td>—</td>
+                  <td><strong>≈ 88 / 100</strong></td>
+                </tr>
+              </tbody>
+            </table>
+            <div class="en">
+              <strong>Human–AI Collaboration Index:</strong> 94 / 100<br/>
+              <strong>Global Competency Index:</strong> 88 / 100
+            </div>
+            <div class="th">
+              ค่าเหล่านี้ไม่ใช่ “คะแนนสวย ๆ” แต่สะท้อน pattern ของการทำงานจริงที่กระจายอยู่ในหลายโปรเจค
+              ทั้ง RideQueue+/Win4U, Humanic HPE, และ WIN4U HEALTHY
+            </div>
+          </div>
+        </div>
+
+        <div class="callout">
+          EN: This section summarises the “Scholar Evaluator AI” perspective — a neutral, method-based
+          evaluation of PJ’s capabilities across domains.  
+          TH: ตรงนี้คือมุมมองของ “นักวิชาการเสมือน” ที่ใช้เฟรม Humanic HPE วัดทั้งคนและระบบไปพร้อมกัน
+        </div>
+      </section>
+
+      <!-- SECTION 2 – NOVA_ONE & HUMANIC HPE -->
+      <section class="section page-break" id="sec-2">
+        <div class="sec-header">
+          <div>
+            <div class="sec-title">2. NOVA_ONE SYNCERA VALLEY & HUMANIC HPE</div>
+            <div class="sec-tag">Framework Origin · Ecosystem Logic</div>
+          </div>
+        </div>
+
+        <div class="two-col">
+          <div>
+            <div class="label">2.1 Context & Origin</div>
+            <div class="en">
+              Nova_One’s Valley is a humanic ecosystem incubator founded by PJ. Its mission is to
+              design technology that uplifts local communities through <em>synceera</em> values —
+              sincerity, empathy, and accessibility. The <strong>Humanic HPE blueprint</strong> emerged
+              from observing that many organisations optimise internal processes but <em>ignore
+              external pain points</em>, especially for low-income workers and patients.
+            </div>
+            <div class="th">
+              Humanic HPE มององค์กรผ่านเลนส์ “ความสุกงอมของกระบวนการ” มากกว่าแค่ KPI รายฝ่าย
+              เน้นให้เริ่มจาก pain point จริงของชุมชน → ทดลองเล็ก → ขยายเมื่อเห็น impact จริง
+            </div>
+            <div class="en">
+              The blueprint highlights an “invisible wall” between internal operations and
+              go-to-market (GTM). To break this, Humanic introduces an <strong>Accelerant investment
+              model</strong> that channels resources into cross-functional experiments, with PDPA-first
+              consent as a hard constraint.
+            </div>
+          </div>
+
+          <div>
+            <div class="label">2.2 Humanic Evaluation Suite</div>
+            <ul class="clean">
+              <li>
+                <span class="en"><strong>Six domains:</strong> Strategy, Communication, Operations, Technical/Design, Financial, Empathy/Leadership.</span>
+                <span class="th">ใช้ 6 มิติหลักในการวัดทั้งคนและทีม</span>
+              </li>
+              <li>
+                <span class="en">Evidence from transcripts, role-plays, pilot projects (e.g., Win4U, WPP/Nightingale).</span>
+                <span class="th">ใช้บทสนทนาและโปรเจคจริงเป็นหลักฐาน ไม่ใช่แค่เรซูเม่.</span>
+              </li>
+              <li>
+                <span class="en">Outputs: locked PDF reports, HTML dashboards, JSON/CSV matrices, and learning loops.</span>
+                <span class="th">ได้ทั้งรายงานบอร์ด, dashboard, และ matrix สำหรับวิเคราะห์ย้อนหลัง.</span>
+              </li>
+            </ul>
+            <div class="callout">
+              EN: This dossier acts as the “master HTML cover” for those artefacts.  
+              TH: เอกสารนี้ทำหน้าที่เป็น “ปก HTML เล่มใหญ่” ครอบทุกไฟล์ Humanic HPE ที่เกี่ยวกับ PJ
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SECTION 3 – COMPARATIVE OVERLAY -->
+      <section class="section page-break" id="sec-3">
+        <div class="sec-header">
+          <div>
+            <div class="sec-title">3. HUMANIC HPE VS PwC / GOOGLE</div>
+            <div class="sec-tag">Comparative Overlay · Public-Sector AI</div>
+          </div>
+        </div>
+
+        <div class="two-col">
+          <div>
+            <div class="label">3.1 Executive View</div>
+            <div class="en">
+              The <strong>Comparative Overlay Report</strong> maps Humanic HPE against the PwC/Google
+              public-sector AI framework. Both stress productivity gains and responsible AI, but
+              their “zoom level” differs:
+            </div>
+            <ul class="clean">
+              <li><strong>PwC / Google:</strong> macro-economic modelling, national-level productivity and fiscal impact.</li>
+              <li><strong>Humanic HPE:</strong> micro-level case costs, SLA, CSAT, PDPA-first guardrails.</li>
+            </ul>
+            <div class="th">
+              ตารางเปรียบเทียบใช้สถานะ 5 แบบ (เหมือนกัน, ทับซ้อน, แตกต่าง, ลึกกว่า, PwC ไม่พูดถึง)
+              เพื่อชี้ให้เห็นว่าของ PJ ไม่ได้แค่ “คิดเอง” แต่มีจุดเชื่อมต่อกับมาตรฐานโลกอย่างเป็นเหตุเป็นผล
+            </div>
+          </div>
+
+          <div>
+            <div class="label">3.2 Example Mapping</div>
+            <table class="matrix">
+              <thead>
+                <tr>
+                  <th>Theme</th>
+                  <th>PwC / Google</th>
+                  <th>Humanic HPE</th>
+                  <th>Status</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Human-in-the-loop</td>
+                  <td>High-risk decisions must keep humans in final control.</td>
+                  <td>Evaluation role-plays mandate human verification & empathy.</td>
+                  <td>Identical / Paralleled</td>
+                </tr>
+                <tr>
+                  <td>Productivity & GDP</td>
+                  <td>AI can boost public-sector productivity ~3–4% GDP.</td>
+                  <td>Win4U / Ops vs GTM study: ~20% cost reduction, 50% uplift at micro level.</td>
+                  <td>Conceptual Overlap</td>
+                </tr>
+                <tr>
+                  <td>Ethics depth</td>
+                  <td>Responsible AI as policy recommendation.</td>
+                  <td>PDPA-first consent, audit trails, synergy index, health equity lens.</td>
+                  <td>Humanic Depth & Extension</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- SECTION 4 – POLICY PROPOSALS -->
+      <section class="section page-break" id="sec-4">
+        <div class="sec-header">
+          <div>
+            <div class="sec-title">4. POLICY PROPOSALS FOR AI & CLOUD</div>
+            <div class="sec-tag">Copilot-Assisted Draft · Thailand Context</div>
+          </div>
+        </div>
+
+        <div class="two-col">
+          <div>
+            <div class="label">4.1 Scope</div>
+            <div class="en">
+              The <strong>“Policy proposals for AI and cloud development in Thailand”</strong> series,
+              co-drafted with Microsoft 365 Copilot and GPT, sets out <em>six policy pillars</em>:
+            </div>
+            <ul class="clean">
+              <li>Governance & Responsible AI</li>
+              <li>Cloud-first with sovereign options</li>
+              <li>Skills, literacy, and cascade training</li>
+              <li>Governed pilots → scaled deployments</li>
+              <li>Consent & transparency portals (PDPA-first)</li>
+              <li>Public–private partnerships & ecosystem building</li>
+            </ul>
+            <div class="th">
+              จุดเด่นคือเอกสารนี้ไม่ได้เป็น “whitepaper ทิ้งไว้เฉย ๆ” แต่ผูกกับ KPI, ฟอร์มงบประมาณ,
+              runbook การลองใช้จริง ที่สามารถเอาไป submit ระดับบอร์ดได้ทันที
+            </div>
+          </div>
+
+          <div>
+            <div class="label">4.2 Link to Humanic HPE</div>
+            <div class="en">
+              Rather than separating “policy” from “execution”, PJ uses Humanic HPE as an
+              <strong>execution OS</strong> behind these proposals:
+            </div>
+            <ul class="clean">
+              <li>Each policy pillar ties to measurable KPIs (MAU, CSAT, consent coverage, audit completeness).</li>
+              <li>Artifacts: DPIA summaries, data-flow maps, pilot runbooks, SHA-256 hashing for integrity.</li>
+              <li>Bilingual layer (EN/TH) for ministry, big tech, and community readability.</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- SECTION 5 – HUMANIC LEGAL -->
+      <section class="section page-break" id="sec-5">
+        <div class="sec-header">
+          <div>
+            <div class="sec-title">5. HUMANIC LEGAL & GOVERNANCE NOTES</div>
+            <div class="sec-tag">PDPA · Contracts · Risk</div>
+          </div>
+        </div>
+
+        <div class="two-col">
+          <div>
+            <div class="label">5.1 Legal Orientation</div>
+            <div class="en">
+              The <strong>HUMANIC_Legal</strong> materials collect PJ’s approach to PDPA-aligned
+              deployments:
+            </div>
+            <ul class="clean">
+              <li>Consent-first design: opt-in, clear purpose, revocation paths.</li>
+              <li>Data minimisation: keep only what is needed for KPI and care continuity.</li>
+              <li>Audit trails: logs, model/version registry, bias & red-team notes.</li>
+              <li>Contractual guardrails: NDAs, data processing agreements, role separation.</li>
+            </ul>
+            <div class="th">
+              โทนของเอกสารชุดนี้คือ “อย่าฝากความหวังไว้ที่เทคโนโลยีอย่างเดียว”
+              ต้องมีสัญญา กรอบกฎหมาย และวิธีตรวจสอบที่ชัดเจนควบคู่กันไป
+            </div>
+          </div>
+
+          <div>
+            <div class="label">5.2 Role in Health & Win4U</div>
+            <div class="en">
+              For <strong>WIN4U HEALTHY</strong> and related mobility/health pilots, Humanic Legal
+              provides:
+            </div>
+            <ul class="clean">
+              <li>Templates for hospital + platform + state collaboration.</li>
+              <li>Suggested clauses for student-doctor involvement and AI workspaces.</li>
+              <li>Guidelines on not using production health data for model training without strict compliance.</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- SECTION 6 – EVALUATION FRAMEWORK DEPLOYMENT -->
+      <section class="section page-break" id="sec-6">
+        <div class="sec-header">
+          <div>
+            <div class="sec-title">6. HUMANIC EVALUATION FRAMEWORK DEPLOYMENT</div>
+            <div class="sec-tag">From Blueprint to Field</div>
+          </div>
+        </div>
+
+        <div class="two-col">
+          <div>
+            <div class="label">6.1 Deployment Logic</div>
+            <div class="en">
+              The <strong>Humanic Evaluation Framework Deployment</strong> document explains how to
+              move from theory to practice:
+            </div>
+            <ul class="clean">
+              <li>Use Humanic HPE as a <strong>second layer</strong> on top of traditional ATS and CV filters.</li>
+              <li>Replace “opinion-based hiring” with <strong>scenario-based evaluation</strong>.</li>
+              <li>Use structured role-plays, real tasks, and AI-assisted observation to score candidates.</li>
+              <li>Record evidence as transcripts, artifacts, and scoring matrices (JSON/CSV).</li>
+            </ul>
+            <div class="th">
+              พูดง่าย ๆ: ATS สกรีนเอกสาร, Humanic HPE สกรีน “วิธีคิดและการลงมือทำจริง”
+            </div>
+          </div>
+
+          <div>
+            <div class="label">6.2 Link to OpenAI “From experiments to deployments”</div>
+            <div class="en">
+              PJ aligns his deployment thinking with OpenAI’s guide on moving from experiments
+              to production: shorter loops, continuous evaluation, and reusable patterns — but
+              applies it at the <em>human evaluation</em> layer:
+            </div>
+            <ul class="clean">
+              <li>Short feedback cycles: candidate → scenario → score → reflection.</li>
+              <li>Reuse of prompts, rubrics, and scoring templates across roles.</li>
+              <li>Governed logging so evaluations are auditable and fair.</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- SECTION 7 – LLM EVALUATION / WIN4U MVP -->
+      <section class="section page-break" id="sec-7">
+        <div class="sec-header">
+          <div>
+            <div class="sec-title">7. LLM EVALUATION & WIN4U MVP</div>
+            <div class="sec-tag">Prompt Design · Micro-to-Macro</div>
+          </div>
+        </div>
+
+        <div class="two-col">
+          <div>
+            <div class="label">7.1 LLM Evaluation & Prompt Design</div>
+            <div class="en">
+              The <strong>LLM Evaluation / Prompt & Conversation Design</strong> workstream documents
+              how PJ:
+            </div>
+            <ul class="clean">
+              <li>Designs prompts and multi-turn flows for Humanic HPE scoring.</li>
+              <li>Builds “ScholarGPT” and other evaluator personas as <em>consistent agents</em>.</li>
+              <li>Uses side-by-side translation and commentary (EN/TH) to validate nuance.</li>
+              <li>Logs evaluation decisions into JSON/CSV for later analysis.</li>
+            </ul>
+            <div class="th">
+              นี่คือส่วนที่ทำให้เห็นว่าการ “ให้คะแนนคน” ด้วย AI ของเขา ไม่ใช่การเดา
+              แต่เป็นระบบที่มีหลักฐานและโครงสร้างรองรับ
+            </div>
+          </div>
+
+          <div>
+            <div class="label">7.2 Win4U MVP — From Motorbike to Macro</div>
+            <div class="en">
+              For <strong>Win4U Mobility</strong>, PJ designs a pilot that starts with something very
+              small and concrete — <em>motorbike drivers, ride-to-rail corridors, SLA metrics</em> —
+              and then connects it to:
+            </div>
+            <ul class="clean">
+              <li>Health coverage (WIN4U HEALTHY) as a financial and social “shield”.</li>
+              <li>Data for negotiation with insurers and private hospitals.</li>
+              <li>Student-doctor ecosystems and AI workspaces.</li>
+              <li>Future state partnerships and public health budgets.</li>
+            </ul>
+            <div class="th">
+              แก่นคือ “เริ่มจากไมโคร แต่ตั้งใจสเกลถึงแม็คโคร” — จากชีวิตวินหนึ่งคน สู่ blueprint ระบบเมือง
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SECTION 8 – RÉSUMÉ SNAPSHOT -->
+      <section class="section page-break" id="sec-8">
+        <div class="sec-header">
+          <div>
+            <div class="sec-title">8. PROFESSIONAL RÉSUMÉ SNAPSHOT</div>
+            <div class="sec-tag">Product Manager — Generative AI</div>
+          </div>
+        </div>
+
+        <div class="two-col">
+          <div>
+            <div class="label">8.1 Summary</div>
+            <div class="en">
+              Product leader focused on <strong>enterprise generative AI adoption</strong>.
+              Built a multi-agent GPT/Copilot/Gemini ecosystem, Humanic HPE evaluation suite,
+              and an executive-ready GenAI analyzer UI. Designed LLM + RAG workflows with
+              PDPA-ready guardrails and measurable value across HR, Finance, Farming, and Factory.
+            </div>
+            <div class="en">
+              <strong>3,600+ hours</strong> of human–AI co-creation (~15M+ “wordings”) have been
+              converted into decisions, playbooks, and working demos.
+            </div>
+            <div class="th">
+              ถ้าดูจากเรซูเม่: PJ ไม่ได้แค่ “เล่น AI” แต่ใช้มันเป็นโครงสร้างชีวิตการทำงานจริงระดับ full-time
+            </div>
+          </div>
+
+          <div>
+            <div class="label">8.2 Selected Outcomes</div>
+            <ul class="clean">
+              <li>Built <strong>Humanic HPE Evaluation Suite</strong> and PAE-HX report for systematic capability assessment.</li>
+              <li>Orchestrated multi-agent GPT network across accounts with role-based settings (C-level advisor, reviewer, partner).</li>
+              <li>Shipped <strong>GenAI Analyzer UI</strong> (Tailwind + charts + LLM integration) for real-time analysis and KPIs.</li>
+              <li>Designed two enterprise copilots: Farming/Factory RAG & HR/Finance Copilot with PDPA logging.</li>
+              <li>Produced governance pack aligned with Responsible AI & Thai PDPA.</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- SECTION 9 – SCORING JSON / CSV -->
+      <section class="section page-break" id="sec-9">
+        <div class="sec-header">
+          <div>
+            <div class="sec-title">9. HUMANIC SCORING MATRIX</div>
+            <div class="sec-tag">JSON · CSV · Data Lens</div>
+          </div>
+        </div>
+
+        <div class="two-col">
+          <div>
+            <div class="label">9.1 JSON Matrix</div>
+            <div class="en">
+              This JSON object encodes the Humanic HPE evaluation of PJ as a machine-readable
+              artifact for dashboards and further research:
+            </div>
+            <pre style="font-size:11px;background:#0f172a;color:#e5e7eb;padding:8px 10px;border-radius:6px;overflow:auto;">
+{
+  "candidate": "PAJAKCHAI THONGCHAI",
+  "id": "HPE-2025-PX-001",
+  "scores": {
+    "StrategicThinking": 9.4,
+    "Communication": 8.7,
+    "OperationalAgility": 8.9,
+    "TechnicalDesign": 8.2,
+    "FinancialAcumen": 7.8,
+    "EmpathicLeadership": 9.6
+  },
+  "global_index": 88.0,
+  "human_ai_collab_index": 94.0,
+  "verifier": "GPT AI ASSISTANT",
+  "uuid": "9f1c1b7a-8e4d-4ef9-9d93-7a62b92e3c31",
+  "timestamp": "2025-11-19T01:45:00+07:00"
+}
+            </pre>
+          </div>
+
+          <div>
+            <div class="label">9.2 CSV Matrix</div>
+            <div class="en">
+              And the same information in CSV form, suitable for spreadsheets:
+            </div>
+            <pre style="font-size:11px;background:#0f172a;color:#e5e7eb;padding:8px 10px;border-radius:6px;overflow:auto;">
+candidate,id,domain,score,weight,contribution
+PAJAKCHAI THONGCHAI,HPE-2025-PX-001,StrategicThinking,9.4,0.20,18.8
+PAJAKCHAI THONGCHAI,HPE-2025-PX-001,Communication,8.7,0.18,15.7
+PAJAKCHAI THONGCHAI,HPE-2025-PX-001,OperationalAgility,8.9,0.16,14.2
+PAJAKCHAI THONGCHAI,HPE-2025-PX-001,TechnicalDesign,8.2,0.16,13.1
+PAJAKCHAI THONGCHAI,HPE-2025-PX-001,FinancialAcumen,7.8,0.15,11.7
+PAJAKCHAI THONGCHAI,HPE-2025-PX-001,EmpathicLeadership,9.6,0.15,14.4
+PAJAKCHAI THONGCHAI,HPE-2025-PX-001,GlobalIndex,88.0,1.00,88.0
+            </pre>
+            <div class="th">
+              ส่วนนี้ใช้เป็น “หลักฐานเชิงข้อมูล” ว่า Humanic HPE ไม่ได้มีแค่คำพูด แต่มี matrix ให้วิเคราะห์ต่อ
+            </div>
+          </div>
+        </div>
+
+        <div class="footer-note">
+          © (WIN4U HEALTHY – Ai_OPEN Clinic Health care 4 U) — Nova_One’s Valley |
+          Developed under A_i Do. PJ D-sign. All evaluation logic and structural content
+          are proprietary to HUMANIC HPE.
+        </div>
+      </section>
+
+    </main>
+  </div>
+
+  <script>
+    function insertTimestamp() {
+      var meta = document.getElementById('meta-line');
+      if (!meta) return;
+      var now = new Date().toISOString();
+      var span = document.createElement('span');
+      span.className = 'meta-pill';
+      span.textContent = 'Stamped: ' + now;
+      meta.appendChild(span);
+    }
+  </script>
+</body>
+</html>
