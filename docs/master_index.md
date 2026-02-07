@@ -4,8 +4,9 @@
 | File | Category | Priority | Status | Purpose |
 | --- | --- | --- | --- | --- |
 | README.md | Public Info | Primary | Active | Top-level project label ("L_NOVA-VALLEY"), placeholder brand marker "Humanic Master". |
+| docs/syncera_report.md | Business / Reports | Primary | Active | SynCera Valley system spec / architecture report in McKinsey-style pattern. |
 
-> หมายเหตุ: พบไฟล์ใน repository เพียง README.md เท่านั้น (ไม่มีเอกสารอื่น ณ ตอนนี้). หากมีไฟล์เพิ่มเติม กรุณาอัปโหลดเพื่อจัดทำดัชนีใหม่.
+> หมายเหตุ: ปัจจุบันมี README.md และเอกสารสเปค `docs/syncera_report.md` แล้ว หากมีไฟล์เพิ่มเติม กรุณาอัปโหลดเพื่อจัดทำดัชนีใหม่.
 
 ## 2) Table of Contents / สารบัญ
 1. Master Index (นี้)
@@ -19,6 +20,7 @@
 | File | Category | Purpose | Relation | Status | Priority |
 | --- | --- | --- | --- | --- | --- |
 | README.md | Public Info | Identifies project name and a brand marker; currently the only artifact. | Root entry point; expected to link to future docs. | Active | Primary |
+| docs/syncera_report.md | Business / Reports | Defines system spec, architecture, data model, and delivery pattern for three projects. | Anchors future documentation structure and governance artifacts. | Active | Primary |
 
 ## 4) Suggested Directory Structure (Proposed) / โครงสร้างโฟลเดอร์แนะนำ
 ```
